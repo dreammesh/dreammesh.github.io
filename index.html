@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bulma css template -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <title>
+    DreamMesh
+  </title>
+  <link rel="icon" href="icon.jpg">
+</head>
+<body>
+  <section class="section">
+
+  <div class="container has-text-centered">
+    <!-- paper title -->
+    <p class="title is-3"> DreamMesh: Jointly Manipulating and Texturing Triangle Meshes for Text-to-3D Generation </p>
+    <!-- publication -->
+     <br/>
+    <p class="subtitle is-4"> ECCV 2024 </p>
+    <!-- authors -->
+    <p class="title is-5 mt-2"> 
+      <span class="author-block">
+        Haibo Yang,</span>
+      <span class="author-block">
+        Yang Chen,</span>
+      <span class="author-block">
+        Yingwei Pan,</span>
+      <span class="author-block">
+        Ting Yao,
+      </span>
+      <span class="author-block">
+        Zhineng Chen,</span>
+      <span class="author-block">
+        Zuxuan Wu,
+      </span>
+      <span class="author-block">
+        Yu-Gang Jiang,
+      </span>
+      <span class="author-block">
+        Tao Mei
+      </span>
+    </p>
+    <!-- affiliations -->
+    <p class="subtitle is-5"> 
+       Fudan University &nbsp;
+       HiDream.ai Inc. &nbsp;
+    </p>
+
+    <!-- other links -->
+    <div class="is-flex is-justify-content-center">
+      <span class="icon-text mx-1">
+        <a class="button is-dark" href="" role="button" target="_blank"> <span class="icon"> <ion-icon name="document-outline"></ion-icon> </span> <span> Paper </span>  </a> 
+      </span>
+      <span class="icon-text mx-1">
+        <a class="button is-dark" href="" role="button" target="_blank"> <span class="icon"> <ion-icon name="logo-github"></ion-icon> </span> <span> Arxiv </span> </a> 
+      </span>
+    </div>
+   
+  </div>
+
+
+  <br />
+
+  <!-- main container -->
+  <div class="container is-max-desktop has-text-centered">
+    <hr style="text-align:center;width:100%;height:1.5px;background-color:rgba(0, 0, 0, 0.665);margin-top:1em">
+
+    <!-- abstract -->
+    <!-- abstract -->
+    <p class="title is-3 mt-5 has-text-centered"> Abstract </p>
+    <p class="content is-size-6 has-text-left">
+      Learning radiance fields (NeRF) with powerful 2D diffusion models has garnered popularity for text-to-3D generation. Nevertheless, the implicit 3D representations of NeRF lack explicit modeling of meshes and textures over surfaces, and such surface-undefined way may suffer from the issues, e.g., noisy surfaces with ambiguous texture details or cross-view inconsistency. To alleviate this, we present DreamMesh, a novel text-to-3D architecture that pivots on well-defined surfaces (triangle meshes) to generate high-fidelity explicit 3D model. Technically, DreamMesh capitalizes on a distinctive coarse-to-fine scheme. In the coarse stage, the mesh is first deformed by text-guided Jacobians and then DreamMesh textures the mesh with an interlaced use of 2D diffusion models in a tuning free manner from multiple viewpoints. In the fine stage, DreamMesh jointly manipulates the mesh and refines the texture map, leading to high-quality triangle meshes with high-fidelity textured materials. 
+      Extensive experiments demonstrate that DreamMesh significantly outperforms state-of-the-art text-to-3D methods in faithfully generating 3D content with richer textual details and enhanced geometry.
+    </p>
+
+
+    <hr style="text-align:center;width:100%;height:1.5px;background-color:rgba(0, 0, 0, 0.665);margin-top:1em">
+    <!-- results (videos) -->
+    <p class="title is-3 mt-5 has-text-centered"> 1. Qualitative Comparison Against Various Methods</p>
+
+    <p class="content has-text-centered is-size-5">
+      Our DreamMesh pivots on completely explicit 3D representation for text-to-3D generation, yielding high-quality 3D meshes that exhibit clean, organized topology, devoid of any redundant vertices & faces.
+    </p>
+    <video muted autoplay controls loop> <source src="videos/skull.mp4" type="video/mp4"> </video>
+    <br />
+    <video muted autoplay controls loop> <source src="videos/hydrant.mp4" type="video/mp4"> </video>
+    <br />
+    <video muted autoplay controls loop> <source src="videos/zoombie.mp4" type="video/mp4"> </video>
+    <br />
+    <hr style="text-align:center;width:100%;height:1.5px;background-color:rgba(0, 0, 0, 0.665);margin-top:1em">
+    <p class="title is-3 mt-5 has-text-centered"> 2. Application in 3D Rendering Pipeline</p>
+    <p class="content has-text-centered is-size-5">
+      It is worthy to note that the synthesized 3D assets by our DreamMesh can be directly applied into existing 3D rendering pipelines (e.g., Blender). We show several interesting application results as follows:
+    </p>
+
+    <p class="title is-4 mt-5 has-text-left"> (1) Rigging and Animating 3D Assets</p>
+    <p class="content has-text-left is-size-6">
+      Here we directly import the synthesized camel of our DreamMesh (input prompt: "A high quality photo of a camel") into Blender. Furthermore, we show how to rig and animate this camel in Blender.
+    </p>
+    <video muted autoplay controls loop> <source src="videos/camel-edit.mp4" type="video/mp4"> </video>
+    <br />
+    <p class="title is-4 mt-5 has-text-left"> (2) Rendering Animations of Multiple 3D Assets</p>
+    <p class="content has-text-left is-size-6">
+      Next, we synthesize two animals via our DreamMesh (input prompts: "A high quality photo of a camel" and "A high quality photo of a giraffe"), and further render a walking animation of both giraffe and camel on a grassy field.
+    </p>
+    <video muted autoplay controls loop> <source src="videos/walk.mp4" type="video/mp4"> </video>
+    <br />
+    <br />
+    <hr style="text-align:center;width:100%;height:1.5px;background-color:rgba(0, 0, 0, 0.665);margin-top:1em">
+    <p class="title is-3 mt-5 has-text-centered"> 3. More Qualitative Results of Our  DreamMesh </p>
+    <video muted autoplay controls loop> <source src="videos/more1.mp4" type="video/mp4"> </video>
+    <br />
+    <video muted autoplay controls loop> <source src="videos/more2.mp4" type="video/mp4"> </video>
+    <br />
+    <video muted autoplay controls loop> <source src="videos/more3.mp4" type="video/mp4"> </video>
+    <br />
+
+        <!-- citation -->
+        <div class="card mt-4">
+          <header class="card-header">
+            <p class="card-header-title"> Citation </p>
+          </header>
+          <div class="card-content is-size-5 has-text-left">
+    <pre><code>@InProceedings{yang2024dreammesh,
+      title={DreamMesh: Jointly Manipulating and Texturing Triangle Meshes for Text-to-3D Generation},
+      author={Haibo Yang and Yang Chen and Yingwei Pan and Ting Yao and Zhineng Chen and Zuxuan Wu and Yu-Gang Jiang and Tao Mei},
+      booktitle={ECCV},
+      year={2024}
+    }</code></pre>
+          </div>
+        </div>
+
+  </div>
+
+
+  </section>
+</body>
+</html>
